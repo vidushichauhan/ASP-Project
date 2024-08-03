@@ -1,0 +1,41 @@
+### Project Overview
+- **Course**: COMP-8567
+- **Title**: Distributed File System
+- **Due Date**: August 13, 2024, 11 PM EDT
+- **Marks**: 100
+- **Plagiarism Detection Tool**: MOSS
+
+### Project Requirements
+- The project can be done individually or in teams of two (students from the same section).
+- The project involves implementing a distributed file system with three servers (`Smain`, `Spdf`, and `Stext`) and multiple client connections.
+- The clients interact only with `Smain`, which handles and forwards requests to the other two servers as needed.
+
+### Servers and Their Roles
+- **Smain**: Handles client requests, stores `.c` files locally, forwards `.pdf` files to `Spdf`, and `.txt` files to `Stext`.
+- **Spdf**: Stores `.pdf` files.
+- **Stext**: Stores `.txt` files.
+
+### Client Commands
+1. **ufile filename destination_path**: Uploads a file from the client's working directory to `Smain`. 
+   - Example: `client24s$ ufile sample.txt ~smain/folder1/folder2`
+2. **dfile filename**: Downloads a file from `Smain` to the client's working directory.
+   - Example: `client24s$ dfile ~smain/folder1/folder2/sample.txt`
+3. **rmfile filename**: Deletes a file from `Smain`.
+   - Example: `client24s$ rmfile ~smain/folder1/folder2/sample.pdf`
+4. **dtar filetype**: Creates and downloads a tar file of the specified file type from `Smain`.
+   - Example: `client24s$ dtar .pdf`
+5. **display pathname**: Displays a consolidated list of `.c`, `.pdf`, and `.txt` files in the specified directory.
+   - Example: `client24s$ display ~smain/folder1/folder2`
+
+### Project Files for Submission
+- **Smain.c**: Main server code.
+- **Spdf.c**: PDF server code.
+- **Stext.c**: Text server code.
+- **client24s.c**: Client code.
+
+### Notes
+- All servers and clients must run on different machines/terminals and communicate via sockets.
+- The system must handle errors appropriately and include comments explaining the code's functionality.
+- Demonstration and viva will be scheduled post-submission.
+
+For more detailed instructions, including implementation specifics and additional notes, refer to the provided PDF file.
